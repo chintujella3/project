@@ -1,0 +1,10 @@
+{
+  "name": "ROEApp",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "author": "Sumeet Agrawal <sumeet.agrawal@scotts.com>",
+  "main":"index.js",
+  "dependencies": {
+    "electron-debug": "^1.0.0"
+  }
+}

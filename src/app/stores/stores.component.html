@@ -1,0 +1,61 @@
+<div *ngIf="loading == true" class="row" style="text-align: center; margin-top: 2rem;">
+    <div class="col-md-4 offset-md-4">
+        <div>
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
+        <div style="font-size: 2rem;">
+            Loading Stores 
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loading == false">
+    <div class="row margin20">
+        <div class="container" style="width: 1378px;">
+            <div class="form-group">
+                <label for="inputdefault"></label>
+                <input class="form-control" id="inputdefault" type="text" placeholder="Search Stores">
+            </div>
+
+                <!-- For Displaying the Stores -->
+            <div >
+                <table class="table .table-responsive">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th style="text-align: center">PayerSetup</th>
+                            <th style="text-align: center">Payer</th>
+                            <th style="text-align: center">Store #</th>
+                            <th style="text-align: center">Store Name</th>
+                            <th style="text-align: center">Address</th>
+                            <th style="text-align: center">City</th>
+                            <th style="text-align: center">State</th>
+                            <th style="text-align: center">Zip</th>
+                            <th style="text-align: center">AccType</th>
+                            <th style="text-align: center">ROEAuth</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor = 'let store of stores'>
+                        <tr>
+                            <div class="form-check" style="margin: 8px 0 0 8px;">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                </label>
+                            </div>
+                            <td style="text-align: center">{{ store.doc.payersetup }}</td>
+                            <td style="text-align: center">{{ store.doc.payer }}</td>
+                            <td style="text-align: center">{{ store.doc.store_number }}</td>
+                            <td style="text-align: center">{{ store.doc.store_name}}</td>
+                            <td style="text-align: center">{{ store.doc.address }}</td>
+                            <td style="text-align: center">{{ store.doc.city }}</td>
+                            <td style="text-align: center">{{ store.doc.state }}</td>
+                            <td style="text-align: center">{{ store.doc.zip }}</td>
+                            <td style="text-align: center">{{ store.doc.acctype }}</td>
+                            <td style="text-align: center">{{ store.doc.roe_authorization }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

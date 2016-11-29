@@ -1,0 +1,7 @@
+
+{
+  "globalDependencies": {
+    "pouchdb": "github:DefinitelyTyped/DefinitelyTyped/pouchdb/pouchdb.d.ts",
+    "moment": "github:DefinitelyTyped/DefinitelyTyped/moment/moment.d.ts"
+  }
+}

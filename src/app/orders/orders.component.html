@@ -1,0 +1,61 @@
+<md-card class="toolbar">
+    <button md-button color="accent"><i class="material-icons md-18">add</i> New order</button>
+    <button md-button color="accent"><i class="material-icons md-18">edit</i> Edit order</button>
+    <button md-button color="accent"><i class="material-icons md-18">save</i> Save for later</button>
+    <button md-button color="accent"><i class="material-icons md-18">cancel</i> Cancel changes</button>
+    <button md-button color="accent"><i class="material-icons md-18">delete</i> Delete order</button>
+</md-card>
+<div class="page">
+    <md-tab-group class="stepper">
+        <md-tab>
+            <template md-tab-label>Program</template>
+            <md-card>
+                Test content 1
+            </md-card>
+        </md-tab>
+        <md-tab>
+            <template md-tab-label>Stores</template>
+            <md-card>
+                <a routerLink="/stores">Stores</a>
+            </md-card>
+        </md-tab>
+        <md-tab>
+            <template md-tab-label>Products</template>
+            <div class="substepper white-theme">
+                <button md-button color="primary" class="substep">
+                    Overview
+                </button>
+                <button md-button color="primary" class="substep">
+                    Matched products
+                </button>
+                <button md-button color="primary" class="substep">
+                    Discontinued suggestions
+                </button>
+                <button md-button color="primary" class="substep">
+                    New products
+                </button>
+                <button md-button color="primary" class="substep">
+                    Recommended
+                </button>
+                <button md-button color="primary" class="substep">
+                    Full catalog
+                </button>
+                <span class="step-stretch"></span>
+            </div>
+            <md-card>
+                Test content 3
+            </md-card>
+        </md-tab>
+        <md-tab>
+            <template md-tab-label>Order info</template>
+            <md-card>
+                Test content 4
+            </md-card>
+        </md-tab>
+    </md-tab-group>
+</div>
+<div class="footer">
+    <span class="fill-space"></span>
+    <button md-button color="accent">Back</button>
+    <button md-raised-button color="accent" md-tooltip="Ctrl + Enter" tooltip-position="above">Next</button>
+</div>

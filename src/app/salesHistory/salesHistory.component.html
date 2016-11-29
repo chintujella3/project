@@ -1,0 +1,96 @@
+<div class="row" xmlns="http://www.w3.org/1999/html">
+    <div class="container">
+        <div class="row">
+            <form #userFrom="ngForm" (ngSubmit)="doSearchStore(userFrom.value)">
+                <div class="form-group">
+                    <label>SAP No</label>
+                    <input type="text" class="form-control" required name="sapNo" ngModel>
+                </div>
+                <div>
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <!-- begin left container-->
+            <div class="col-md-6">
+
+                <!-- begin inner row 1-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <h4>Store info</h4></div>
+                        <div class="row" *ngIf="store">
+                            <div class="row"><strong>{{store.store_name}}</strong></div>
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td>SAP</td>
+                                    <td>{{ store._id }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Store</td>
+                                    <td>{{ store.store_number }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>
+                                        {{ store.address }}
+                                        <br> {{ store.city }}, {{store.state}} {{store.zip}}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row"></div>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                            </div>
+                            <div class="col-md-6"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end inner row 1-->
+            </div>
+            <!-- end left container-->
+
+            <!-- begin right container-->
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="row">
+                        History Detail
+                    </div>
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Division</th>
+                                <th>SKU</th>
+                                <th>EA</th>
+                                <th>Sales</th>
+                            </tr>
+                            </thead>
+                            <tbody *ngIf='salesHistory'>
+                            <tr>
+                                <td>{{ salesHistory.description }}</td>
+                                <td>{{ salesHistory.division }}</td>
+                                <td>{{ salesHistory.sku }}</td>
+                                <td>{{ salesHistory.eaches }}</td>
+                                <td>{{ salesHistory.sales }}</td>
+                            </tr>
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- end right container-->
+        </div>
+    </div>
+</div>

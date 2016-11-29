@@ -1,0 +1,15 @@
+{
+  "osx" : {
+    "title": "ROEApp",
+    "icon": "assets/osx/logo.icns",
+    "icon-size": 128,
+    "contents": [
+      { "x": 355, "y": 125, "type": "link", "path": "/Applications" },
+      { "x": 155, "y": 125, "type": "file" }
+    ]
+  },
+  "win" : {
+    "title" : "ROEApp",
+    "icon" : "assets/win/logo.ico"
+  }
+}

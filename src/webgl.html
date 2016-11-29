@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>3D Modal</title>
+    <link href="style/webGl.css" rel="stylesheet">
+</head>
+
+<body onresize="makeResponsive()">
+    <div class="window">
+        <header class="toolbar toolbar-header">
+            <div class="close"></div>
+        </header>
+        <div class="window-content">
+            <iframe ng-hide="takingScreenshot" src="https://sketchfab.com/models/195c4807ee5d42e5b6f8ea16604f806e/embed?api_version=1.0.0&amp;api_id=8917648764891204&amp;overrideDevicePixelRation=1"
+                id="api-frame" allowfullscreen="" mozallowfullscreen="true" webkitallowfullscreen="true" style="height: 475px; width: 75%; padding-top:-20px; float:left"></iframe>
+
+            <!-- Promotion Section -->
+            <div style="margin-top: -20px; padding-left: 77%; padding-top: 25px;">
+                <h3>Promotion:</h3>
+                <ul>
+                    <li>Buy one get one free</li>
+                    <li>Free Free Free</li>
+                </ul>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+        <div style="margin: 10px 0 0 15px">
+            <span style="margin-bottom: 5px" id="parentQuestion"></span>
+            <span id="parentResponseTool" style="display: none">
+            <input type="text" id="writeOrder"/>
+            <button onclick="submitOrder()">Write Order</button>
+          </span>
+        </div>
+    </div>
+</body>
+<script>
+    var electron = require('electron');
+    const {ipcRenderer} = require('electron');
+
+    // You can also require other files to run in this process
+    require('./renderer_webgl.js');
+
+    //Submitting order provided to main application to capture for Order creation
+    function submitOrder() {
+        ipcRenderer.send('asynchronous-message-write-order', document.getElementById("writeOrder").value);
+    }
+
+    //Listen for parent window messages
+    ipcRenderer.on('asynchronous-parent-message', function (event, messageFromParent) {
+        document.getElementById('parentQuestion').innerHTML = messageFromParent;
+        document.getElementById('parentResponseTool').style.display = 'inline';
+    });
+
+    //This method call on browser resize event
+    function makeResponsive() {
+        document.getElementById('api-frame').style.height = (window.innerHeight - 75) + 'px';
+    }
+</script>
+
+</html>

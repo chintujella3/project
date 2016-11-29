@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="ROEApp">
+
+<head>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <meta charset="UTF-8">
+    <title>ROE Application</title>
+    <link href="styles.min.css" rel="stylesheet">
+    <link href="roe-theme.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+
+    <!-- bower:css -->
+    <link href="./lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- endbower -->
+</head>
+
+<body>
+    <app>Loading...</app>
+
+    <!-- bower:js -->
+    <script src="./lib/pouchdb/dist/pouchdb.js"></script>
+    <script src="./lib/pouchdb-all-dbs/dist/pouchdb.all-dbs.js"></script>
+    <script src="http://cdn.jsdelivr.net/pouchdb/latest/pouchdb.min.js"></script>
+    <script src="./lib/moment/moment.js"></script>
+    <script src="./lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+
+    <script src="../node_modules/core-js/client/shim.min.js"></script>
+    <script src="../node_modules/zone.js/dist/zone.js"></script>
+    <script src="../node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="../node_modules/systemjs/dist/system.src.js"></script>
+    <script src="../systemjs.config.js"></script>
+
+    <!-- your app's js -->
+    <script src="global_var.js"></script>
+
+    <script>
+        System.import('app').catch(function(err){ console.error(err); });
+    </script>
+
+    <!--electron config-->
+    <script>
+        var electron = require('electron');
+        const { ipcRenderer } = require('electron')
+        // You can also require other files to run in this process
+        require('./renderer.js')
+    </script>
+</body>
+
+</html>
